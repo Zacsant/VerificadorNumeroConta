@@ -6,20 +6,27 @@ public class VerificadorNumeroConta {
         Scanner scanner = new Scanner(System.in);
 
         try {
-            System.out.println("Digite o número da conta bancária:");
             String numeroConta = scanner.nextLine();
             verificarNumeroConta(numeroConta);
-            System.out.println("Número de conta válido.");
+
+            // TODO: Chamar o método que veritica se o número da conta é valido
+            
+            // Caso nenhuma exceção seja lançada, imprime a mensagem de sucesso.
+            System.out.println("Numero de conta valido.");
         } catch (IllegalArgumentException e) {
+            // TODO: Informar que o número de conta é inválido e exibir a mensagem de erro
             System.out.println("Erro: " + e.getMessage());
         } finally {
+            // Fechar o scanner para evitar vazamentos de recursos
             scanner.close();
         }
     }
 
     private static void verificarNumeroConta(String numeroConta) {
         if (numeroConta.length() != 8) {
-            throw new IllegalArgumentException("Número de conta inválido. Digite exatamente 8 dígitos.");
+          throw new IllegalArgumentException("Numero de conta invalido. Digite exatamente 8 digitos.");
+            // TODO: Lançar uma IllegalArgumentException com a seguinte mensagem:
+            // "Numero de conta invalido. Digite exatamente 8 digitos."
         }
     }
 }
